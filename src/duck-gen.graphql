@@ -1,24 +1,24 @@
 type Query{
-    nonVerifiedImages: [Image]
-    verifiedImages: [Image]
-    users: [User]
-    imageById(id: ID!): Image
+    nonVerifiedImages: [Image!]!
+    verifiedImages: [Image!]!
+    users: [User!]!
+    imageById(id: ID!): Image!
 }
 
 type Mutation {
-    verifyImage(id: ID!, imageType: ImageType): Image
-    undoVerifyImage(id: ID!): Image
+    verifyImage(id: ID!, imageType: ImageType): Image!
+    undoVerifyImage(id: ID!): Image!
 }
 
 type Image {
-    id:        String
-    pk:        String
-    fileName:  String
-    imgUrl:    String
-    user:      User
-    imageType: ImageType
-    verified:  Boolean
-    verifiedAt: String
+    id:        String!
+    pk:        String!
+    fileName:  String!
+    imgUrl:    String!
+    user:      User!
+    imageType: ImageType!
+    verified:  Boolean!
+    verifiedAt: String!
 }
 
 enum ImageType {
@@ -27,8 +27,8 @@ enum ImageType {
 }
 
 type User {
-    pk:              String
-    userName:        String
-    fullName:        String
-    profile_pic_url: String
+    pk:              String!
+    userName:        String!
+    fullName:        String!
+    profile_pic_url: String!
 }

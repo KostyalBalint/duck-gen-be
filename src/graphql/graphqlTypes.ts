@@ -14,33 +14,33 @@ export enum ImageType {
 }
 
 export interface IQuery {
-    nonVerifiedImages(): Nullable<Nullable<Image>[]> | Promise<Nullable<Nullable<Image>[]>>;
-    verifiedImages(): Nullable<Nullable<Image>[]> | Promise<Nullable<Nullable<Image>[]>>;
-    users(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
-    imageById(id: string): Nullable<Image> | Promise<Nullable<Image>>;
+    nonVerifiedImages(): Image[] | Promise<Image[]>;
+    verifiedImages(): Image[] | Promise<Image[]>;
+    users(): User[] | Promise<User[]>;
+    imageById(id: string): Image | Promise<Image>;
 }
 
 export interface IMutation {
-    verifyImage(id: string, imageType?: Nullable<ImageType>): Nullable<Image> | Promise<Nullable<Image>>;
-    undoVerifyImage(id: string): Nullable<Image> | Promise<Nullable<Image>>;
+    verifyImage(id: string, imageType?: Nullable<ImageType>): Image | Promise<Image>;
+    undoVerifyImage(id: string): Image | Promise<Image>;
 }
 
 export interface Image {
-    id?: Nullable<string>;
-    pk?: Nullable<string>;
-    fileName?: Nullable<string>;
-    imgUrl?: Nullable<string>;
-    user?: Nullable<User>;
-    imageType?: Nullable<ImageType>;
-    verified?: Nullable<boolean>;
-    verifiedAt?: Nullable<string>;
+    id: string;
+    pk: string;
+    fileName: string;
+    imgUrl: string;
+    user: User;
+    imageType: ImageType;
+    verified: boolean;
+    verifiedAt: string;
 }
 
 export interface User {
-    pk?: Nullable<string>;
-    userName?: Nullable<string>;
-    fullName?: Nullable<string>;
-    profile_pic_url?: Nullable<string>;
+    pk: string;
+    userName: string;
+    fullName: string;
+    profile_pic_url: string;
 }
 
 type Nullable<T> = T | null;
