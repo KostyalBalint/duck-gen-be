@@ -1,0 +1,31 @@
+type Query{
+    nonVerifiedImages: [Image]
+    users: [User]
+}
+
+type Mutation {
+    verifyImage(id: ID!, imageType: ImageType): Image
+    undoVerifyImage(id: ID!): Image
+}
+
+type Image {
+    id:        String
+    pk:        String
+    fileName:  String
+    imgUrl:    String
+    user:      User
+    imageType: ImageType
+    verified:  Boolean
+}
+
+enum ImageType {
+    UNKNOWN
+    DUCK
+}
+
+type User {
+    pk:              String
+    userName:        String
+    fullName:        String
+    profile_pic_url: String
+}
