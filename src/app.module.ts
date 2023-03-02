@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { Config } from './config/config';
-import { DucksModule } from './ducks/ducks.module';
+import { UserModule } from './modules/user/user.module';
 
 @Module({
   imports: [
@@ -13,7 +13,7 @@ import { DucksModule } from './ducks/ducks.module';
       typePaths: ['./**/*.graphql'],
     }),
     Config,
-    DucksModule,
+    UserModule,
   ],
   controllers: [AppController],
   providers: [AppService],
