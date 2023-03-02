@@ -1,6 +1,8 @@
 type Query{
     nonVerifiedImages: [Image]
+    verifiedImages: [Image]
     users: [User]
+    imageById(id: ID!): Image
 }
 
 type Mutation {
@@ -16,6 +18,7 @@ type Image {
     user:      User
     imageType: ImageType
     verified:  Boolean
+    verifiedAt: String
 }
 
 enum ImageType {

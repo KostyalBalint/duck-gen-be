@@ -15,7 +15,9 @@ export enum ImageType {
 
 export interface IQuery {
     nonVerifiedImages(): Nullable<Nullable<Image>[]> | Promise<Nullable<Nullable<Image>[]>>;
+    verifiedImages(): Nullable<Nullable<Image>[]> | Promise<Nullable<Nullable<Image>[]>>;
     users(): Nullable<Nullable<User>[]> | Promise<Nullable<Nullable<User>[]>>;
+    imageById(id: string): Nullable<Image> | Promise<Nullable<Image>>;
 }
 
 export interface IMutation {
@@ -31,6 +33,7 @@ export interface Image {
     user?: Nullable<User>;
     imageType?: Nullable<ImageType>;
     verified?: Nullable<boolean>;
+    verifiedAt?: Nullable<string>;
 }
 
 export interface User {
