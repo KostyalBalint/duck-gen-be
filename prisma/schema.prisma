@@ -9,3 +9,27 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  pk              String  @unique @db.VarChar(30)
+  userName        String
+  fullName        String
+  profile_pic_url String
+  images          Image[]
+}
+
+model Image {
+  id        String    @id @db.VarChar(100)
+  pk        String    @unique @db.VarChar(30)
+  fileName  String
+  imgUrl    String
+  user      User      @relation(fields: [userId], references: [pk])
+  userId    String    @db.VarChar(30)
+  imageType ImageType
+  verified  Boolean   @default(false)
+}
+
+enum ImageType {
+  UNKNOWN
+  DUCK
+}

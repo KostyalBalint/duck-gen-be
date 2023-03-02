@@ -6,4 +6,5 @@ export class Config {
     host: get('SERVER_HOST').default('0.0.0.0').asString(),
     port: get('SERVER_PORT').default('3000').asString(),
   };
+  loadDataPath = get('LOAD_DATA_PATH').default('data').asString();
 }
