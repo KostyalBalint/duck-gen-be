@@ -10,14 +10,26 @@
 
 export enum ImageType {
     UNKNOWN = "UNKNOWN",
-    DUCK = "DUCK"
+    DUCK = "DUCK",
+    NOT_DUCK = "NOT_DUCK"
 }
 
 export interface IQuery {
     nonVerifiedImages(): Image[] | Promise<Image[]>;
+    nonVerifiedImage(): Image | Promise<Image>;
     verifiedImages(): Image[] | Promise<Image[]>;
     users(): User[] | Promise<User[]>;
     imageById(id: string): Image | Promise<Image>;
+    stats(): Stats | Promise<Stats>;
+}
+
+export interface Stats {
+    totalImages: number;
+    totalVerifiedImages: number;
+    totalNonVerifiedImages: number;
+    totalUsers: number;
+    totalDucks: number;
+    totalNotDucks: number;
 }
 
 export interface IMutation {

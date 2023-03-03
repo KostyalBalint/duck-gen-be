@@ -33,4 +33,5 @@ model Image {
 enum ImageType {
   UNKNOWN
   DUCK
+  NOT_DUCK
 }

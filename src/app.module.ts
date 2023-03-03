@@ -8,6 +8,7 @@ import { UserModule } from './modules/user/user.module';
 import { ImageModule } from './modules/image/image.module';
 import { join } from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { StatsModule } from './modules/stats/stats.module';
 
 const config = new Config();
 
@@ -24,6 +25,7 @@ const config = new Config();
       rootPath: join(config.loadDataPath, 'images'),
       serveRoot: '/images',
     }),
+    StatsModule,
   ],
   controllers: [AppController],
   providers: [AppService],

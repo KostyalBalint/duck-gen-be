@@ -7,7 +7,14 @@ export class ImageService {
   constructor(private readonly prismaService: PrismaService) {}
   async getRandomNonVerifiedImages() {
     return await this.prismaService
-      .$queryRaw`SELECT * FROM "Image" WHERE "verified" = false AND "imageType" = \'UNKNOWN\' ORDER BY RANDOM() LIMIT 15`;
+      .$queryRaw`SELECT * FROM "Image" WHERE "verified" = false AND "imageType" = \'UNKNOWN\' ORDER BY RANDOM() LIMIT 30`;
+  }
+
+  async getRandomNonVerifiedImage() {
+    return (
+      await this.prismaService
+        .$queryRaw`SELECT * FROM "Image" WHERE "verified" = false AND "imageType" = \'UNKNOWN\' ORDER BY RANDOM() LIMIT 1`
+    )[0];
   }
 
   getImageById(id: string) {

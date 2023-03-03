@@ -18,6 +18,11 @@ export class ImageResolver {
     return this.imageService.getRandomNonVerifiedImages();
   }
 
+  @Query('nonVerifiedImage')
+  async nonVerifiedImage() {
+    return await this.imageService.getRandomNonVerifiedImage();
+  }
+
   @Query('verifiedImages')
   verifiedImages() {
     return this.imageService.getVerifiedImages();
