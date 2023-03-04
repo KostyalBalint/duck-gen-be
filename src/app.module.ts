@@ -9,6 +9,7 @@ import { ImageModule } from './modules/image/image.module';
 import { join } from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { StatsModule } from './modules/stats/stats.module';
+import { HealthModule } from './health/health.module';
 
 const config = new Config();
 
@@ -18,6 +19,7 @@ const config = new Config();
       driver: ApolloDriver,
       typePaths: ['./**/*.graphql'],
     }),
+    HealthModule,
     Config,
     UserModule,
     ImageModule,
