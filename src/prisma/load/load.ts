@@ -76,6 +76,9 @@ async function main() {
 
   const files = fs.readdirSync(folderPath);
   for (const file of files) {
+    if (!file.endsWith('.json')) {
+      continue;
+    }
     console.log('🔥 Loading file: ' + file);
     await loadFile(path.join(folderPath, file));
   }
