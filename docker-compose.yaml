@@ -9,7 +9,7 @@ services:
     env_file:
       - .env
     volumes:
-      - /data:/home/balint/duck-gen/data
+      - /home/balint/duck-gen/data:/data
 
 volumes:
   data:
