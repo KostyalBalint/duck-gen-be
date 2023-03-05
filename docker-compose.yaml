@@ -5,11 +5,11 @@ services:
     container_name: duck-gen-be
     restart: always
     ports:
-      - '80:8081'
+      - '8081:80'
     env_file:
       - .env
     volumes:
-      - /home/balint/duck-gen/data:/data
+      - /data:/home/balint/duck-gen/data
 
 volumes:
   data:
